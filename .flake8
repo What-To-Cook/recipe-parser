@@ -10,6 +10,7 @@ ignore = S301, S403,
 per-file-ignores =
    recipe_parser/proxy.py: WPS115,
    recipe_parser/const.py: WPS326,
-   recipe_parser/parsing.py: WPS226
+   recipe_parser/parsing/recipe.py: WPS226,
+   recipe_parser/parsing/utils.py: WPS100,
 
 format = ${cyan}%(path)s${reset}:${yellow_bold}%(row)d${reset}:${green_bold}%(col)d${reset}: ${red_bold}%(code)s${reset} %(text)s
