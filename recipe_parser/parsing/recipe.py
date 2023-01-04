@@ -15,7 +15,7 @@ def parse_recipe(
     soup = BeautifulSoup(page_content.content)
 
     return {
-        'name': _get_name(soup),
+        'name': _get_name(soup).replace('\xa0', ' '),
         'serves_amount': _get_serves_amount(soup),
         'steps': _get_steps(soup),
         'ingredients': _get_ingredients(soup),
@@ -63,17 +63,16 @@ def _get_ingredients(
     ingredients = []
 
     for ingredient in soup.find_all('span', itemprop='recipeIngredient'):
-        ingredient = ingredient.get_text()
         amount = None
 
         for candidate in list(ingredient.parents)[2].find_all('span', title=True):
             span = candidate.get_text()
 
-            if span != ingredient:
+            if span != ingredient.get_text():
                 amount = span
 
         ingredients.append({
-            'ingredient': ingredient,
+            'ingredient': ingredient.get_text().replace('\xa0', ' '),
             'amount': amount,
         })
 
