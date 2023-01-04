@@ -32,5 +32,3 @@ USER_AGENTS = (
         'Safari/537.36'
     ),
 )
-
-TO_TASTE = 'по вкусу'
