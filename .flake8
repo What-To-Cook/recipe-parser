@@ -4,6 +4,7 @@ max-line-length = 120
 ignore = S301, S403,
     WPS237,
     WPS305, WPS306,
+    WPS410, WPS412,
     WPS602,
     D100, D101, D102, D103, D104, D105, D107,
 
