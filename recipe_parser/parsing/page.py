@@ -1,3 +1,5 @@
+# type: ignore
+
 import requests
 
 from recipe_parser.const import BASE_URL
