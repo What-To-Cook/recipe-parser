@@ -44,7 +44,7 @@ def _process_urls(
     return recipes
 
 
-def parse(
+def parse_recipes(
     num_pages: int,
     max_retries: int,
     out_path: Path,
