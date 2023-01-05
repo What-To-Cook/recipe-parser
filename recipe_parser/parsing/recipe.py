@@ -13,13 +13,15 @@ def parse_recipe(
         headers=make_headers(),
     )
     soup = BeautifulSoup(page_content.content)
+    ingredients = _get_ingredients(soup)
 
     return {
         'name': _get_name(soup).replace('\xa0', ' '),
         'serves_amount': _get_serves_amount(soup),
         'steps': _get_steps(soup),
-        'ingredients': _get_ingredients(soup),
+        'ingredients': ingredients,
         'energy_value_per_serving': _get_energy_value(soup),
+        'unique_ingredients': list({ing['ingredient'] for ing in ingredients}),
     }
 
 
